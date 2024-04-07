@@ -1,4 +1,4 @@
-import { useId, useState } from "react"
+import { useContext, useId, useState } from "react"
 import style from "./ItemsForm.module.css"
 import HatImage from "/src/assets/Hat.png"
 import JeansImage from "/src/assets/Jeans.png"
@@ -7,11 +7,16 @@ import ShortsImage from "/src/assets/Shorts.png"
 import TShirtImage from "/src/assets/T-shirt.png"
 import {v4 as uuid} from "uuid"
 import axios from "axios"
+import SelectInput from "../../FormInputs/SelectInput"
+import FieldInput from "../../FormInputs/FieldInput"
+import RadioInput from "../../FormInputs/RadioInput"
+import UrlContext from "../../UrlContext"
 
 // Using UUID so that I don't have to check if ID already exist in the "database"
 // UUIDs are globally unique
 
 function ItemsForm() {
+    const URL = useContext(UrlContext)
 
     const [item, setItemData] = useState(
         {
@@ -34,7 +39,7 @@ function ItemsForm() {
         
         const postItem = {id: smallID, ...item, imagePath: imagePath}
        
-        axios.post("http://localhost:3001/items", postItem)
+        axios.post(URL, postItem)
         .then(res => console.log(res))
         
     }
@@ -66,58 +71,31 @@ function ItemsForm() {
     return (
         <div className={style.mainDiv}>
             <form className={style.form} onSubmit={handleSubmit}>
-                <label>
-                Select an item from your closet:
+                <SelectInput labelText={"Select an item from your closet:"}
+                selectValue={item.item}
+                selectName={"item"}
+                onChange={changeInput}
+                optionValues={["", "hat", "jumper", "jeans", "shorts", "t-shirt"]}
+                innerText={["Item", "Hat", "Jumper", "Jeans", "Shorts", "T-shirt"]}
+                ></SelectInput>
                 <br />
-                    <select name="item" onChange={changeInput} value={item.item} required>
-                        <option value="" hidden>Item</option>
-                        <option value="hat">Hat</option>
-                        <option value="jumper">Jumper</option>
-                        <option value="jeans">Jeans</option>
-                        <option value="shorts">Shorts</option>
-                        <option value="t-shirt">T-shirt</option>
-                    </select>
-                </label>
-                <br />
-                <label>Brand of the selected item: <br /><input value={item.brand} onChange={changeInput} type="text" name="brand" placeholder="Brand name" required></input></label>
+                <FieldInput labelText={"Brand of the selected item:"} inputType={"text"} inputName={"brand"} inputPlaceholder={"Brand name"} inputValue={item.brand} onChange={changeInput}></FieldInput>
                 <br/>
-                <label>Cost of the item:<br /><input value={item.price} onChange={changeInput} type="number" name="price" placeholder="Price" step="0.01" required></input></label>
+                <FieldInput labelText={"Cost of the item:"} inputType={"number"} inputName={"price"} inputPlaceholder={"Price"} inputValue={item.price} onChange={changeInput} numberStep={"0.01"}></FieldInput>
                 <br />
-                <label>
-                    Item was on sale:
-                    <br />
-                    <input value={"yes"} onChange={changeInput} name="onSale" type="radio" required></input>
-                    Yes
-                    <input value={"no"} onChange={changeInput} name="onSale" type="radio" required></input>
-                    No
-                </label>
+                <RadioInput labelText={"Item was on sale:"} radioValues={["yes", "no"]} radioLabels={["Yes", "No"]} onChange={changeInput} radioName={"onSale"} item={item}></RadioInput>
                 <br />
-                <label>
-                Select size of your item:
+                <SelectInput labelText={"Select size of your item:"}
+                selectValue={item.size}
+                selectName={"size"}
+                onChange={changeInput}
+                optionValues={["", "xs", "s", "m", "l", "xl", "xxl", "universal"]}
+                innerText={["Size", "XS", "S", "M", "L", "XL", "XXL", "Universal"]}
+                ></SelectInput>
                 <br />
-                    <select value={item.size} onChange={changeInput} name="size" required>
-                        <option value="" hidden>Size</option>
-                        <option value="xs">XS</option>
-                        <option value="s">S</option>
-                        <option value="m">M</option>
-                        <option value="l">L</option>
-                        <option value="xl">XL</option>
-                        <option value="xxl">XXL</option>
-                        <option value="universal">Universal</option>
-                    </select>
-                </label>
+                <FieldInput labelText={"Item color:"} inputType={"color"} inputName={"color"} inputValue={item.color} onChange={changeInput}></FieldInput>
                 <br />
-                <label>
-                    Item color:
-                    <br />
-                    <input value={item.color} onChange={changeInput} className={style.colorpicker} type="color" name="color"></input>
-                </label>
-                <br />
-                <label>
-                    Date bought:
-                    <br />
-                    <input value={item.dateBought} onChange={changeInput} type="date" name="dateBought" required></input>
-                </label>
+                <FieldInput labelText={"Date bought:"} inputType={"date"} inputName={"dateBought"} inputValue={item.dateBought} onChange={changeInput}></FieldInput>
                 <br />
 
                 <button>Add Item</button>
