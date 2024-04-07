@@ -1,11 +1,13 @@
 import './App.css'
-import ItemsInput from './components/ItemsInput/ItemsInput'
+import ItemsForm from './components/ItemsForm/ItemsForm'
+import TitleDisplay from './components/TitleDisplay/TitleDisplay'
 
 function App() {
 
   return (
     <>
-    <ItemsInput></ItemsInput>
+    <TitleDisplay></TitleDisplay>
+    <ItemsForm></ItemsForm>
     </>
   )
 }
