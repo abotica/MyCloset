@@ -1,9 +1,9 @@
 
 
-function SelectInput({labelText, selectValue, selectName, onChange, optionValues, innerText}){
+function SelectInput({labelText, selectValue, selectName, onChange, optionValues, innerText, showLabel}){
     return (
         <label>
-        {labelText}
+        {showLabel && labelText}
         <br />
             <select name={selectName} onChange={onChange} value={selectValue} required>
                 {optionValues.map( (optValue, index) => {

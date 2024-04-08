@@ -16,7 +16,7 @@ import UrlContext from "../UrlContext"
 // UUIDs are globally unique
 
 function ItemsForm() {
-    const {URL, setItems, items} = useContext(UrlContext)
+    const {URL, setItems, items, itemsDropdownOptionValues, itemsDropdownInnerText, sizesDropdownOptionValues, sizesDropdownInnerText} = useContext(UrlContext)
 
     const [item, setItemData] = useState(
         {
@@ -77,27 +77,29 @@ function ItemsForm() {
                 selectValue={item.item}
                 selectName={"item"}
                 onChange={changeInput}
-                optionValues={["", "hat", "jumper", "jeans", "shorts", "t-shirt"]}
-                innerText={["Item", "Hat", "Jumper", "Jeans", "Shorts", "T-shirt"]}
+                optionValues={itemsDropdownOptionValues}
+                innerText={itemsDropdownInnerText}
+                showLabel={true}
                 ></SelectInput>
                 <br />
-                <FieldInput labelText={"Brand of the selected item:"} inputType={"text"} inputName={"brand"} inputPlaceholder={"Brand name"} inputValue={item.brand} onChange={changeInput}></FieldInput>
+                <FieldInput labelText={"Brand of the selected item:"} inputType={"text"} inputName={"brand"} inputPlaceholder={"Brand name"} inputValue={item.brand} onChange={changeInput} showLabel={true}></FieldInput>
                 <br/>
-                <FieldInput labelText={"Cost of the item:"} inputType={"number"} inputName={"price"} inputPlaceholder={"Price"} inputValue={item.price} onChange={changeInput} numberStep={"0.01"}></FieldInput>
+                <FieldInput labelText={"Cost of the item:"} inputType={"number"} inputName={"price"} inputPlaceholder={"Price"} inputValue={item.price} onChange={changeInput} numberStep={"0.01"} showLabel={true}></FieldInput>
                 <br />
-                <RadioInput labelText={"Item was on sale:"} radioValues={["yes", "no"]} radioLabels={["Yes", "No"]} onChange={changeInput} radioName={"onSale"} item={item}></RadioInput>
+                <RadioInput labelText={"Item was on sale:"} radioValues={["yes", "no"]} radioLabels={["Yes", "No"]} onChange={changeInput} radioName={"onSale"} item={item} showLabel={true}></RadioInput>
                 <br />
                 <SelectInput labelText={"Select size of your item:"}
                 selectValue={item.size}
                 selectName={"size"}
                 onChange={changeInput}
-                optionValues={["", "xs", "s", "m", "l", "xl", "xxl", "universal"]}
-                innerText={["Size", "XS", "S", "M", "L", "XL", "XXL", "Universal"]}
+                optionValues={sizesDropdownOptionValues}
+                innerText={sizesDropdownInnerText}
+                showLabel={true}
                 ></SelectInput>
                 <br />
-                <FieldInput labelText={"Item color:"} inputType={"color"} inputName={"color"} inputValue={item.color} onChange={changeInput}></FieldInput>
+                <FieldInput labelText={"Item color:"} inputType={"color"} inputName={"color"} inputValue={item.color} onChange={changeInput} showLabel={true}></FieldInput>
                 <br />
-                <FieldInput labelText={"Date bought:"} inputType={"date"} inputName={"dateBought"} inputValue={item.dateBought} onChange={changeInput}></FieldInput>
+                <FieldInput labelText={"Date bought:"} inputType={"date"} inputName={"dateBought"} inputValue={item.dateBought} onChange={changeInput} showLabel={true}></FieldInput>
                 <br />
 
                 <button>Add Item</button>

@@ -9,8 +9,13 @@ import Table from './components/Table/Table'
 
 function App() {
   // OBAVEZNO OVO VRATI NA LOCALHOST!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-  const URL = "http://192.168.0.68:3001/items"
+  const URL = "http://localhost:3001/items"
   const [items, setItems] = useState([])
+
+  const itemsDropdownOptionValues = ["", "hat", "jumper", "jeans", "shorts", "t-shirt"]
+  const itemsDropdownInnerText = ["Item", "Hat", "Jumper", "Jeans", "Shorts", "T-shirt"]
+  const sizesDropdownOptionValues = ["", "xs", "s", "m", "l", "xl", "xxl", "universal"]
+  const sizesDropdownInnerText = ["Size", "XS", "S", "M", "L", "XL", "XXL", "Universal"]
 
   useEffect(() => {
     axios.get(URL)
@@ -19,7 +24,8 @@ function App() {
 
   return (
     <>
-      <UrlContext.Provider value={{URL: URL, setItems: setItems, items: items}}>
+      <UrlContext.Provider value={{URL: URL, setItems: setItems, items: items, itemsDropdownOptionValues: itemsDropdownOptionValues,
+      itemsDropdownInnerText: itemsDropdownInnerText, sizesDropdownOptionValues: sizesDropdownOptionValues, sizesDropdownInnerText: sizesDropdownInnerText}}>
         <TitleDisplay></TitleDisplay>
         <ItemsFilter></ItemsFilter>
         <ItemsForm></ItemsForm>

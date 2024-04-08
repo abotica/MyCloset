@@ -1,9 +1,9 @@
 
 
-function FieldInput({ labelText, inputType, inputName, inputPlaceholder, inputValue, onChange, numberStep }) {
+function FieldInput({ labelText, inputType, inputName, inputPlaceholder, inputValue, onChange, numberStep, showLabel }) {
     return (
         <label>
-            {labelText}
+            {showLabel && labelText}
             <br />
             {inputType == "number" && <input value={inputValue} onChange={onChange} name={inputName} type={inputType} placeholder={inputPlaceholder} step={numberStep} required></input>}
             {inputType == "text" && <input value={inputValue} onChange={onChange} name={inputName} type={inputType} placeholder={inputPlaceholder} required></input>}

@@ -1,10 +1,23 @@
+import { useContext } from "react"
 import style from "./WarningMessage.module.css"
+import UrlContext from "../UrlContext"
+import axios from "axios"
 
-function WarningMessage({setWarningMessage, showWarningMessage}){
+
+function WarningMessage({setWarningMessage, showWarningMessage, dataId}){
+    const {URL, setItems} = useContext(UrlContext)
 
     function handleOnClickYes(){
         setWarningMessage(!showWarningMessage)
-        // izbrisi item preko njegovog ID-a
+        console.log(URL + `/${dataId}`)
+        deleteData()
+    }
+
+    async function deleteData(){
+        await axios.delete(URL + `/${dataId}`)
+        const result = await axios.get(URL)
+        const items = result.data
+        setItems([...items])
     }
 
     return (
