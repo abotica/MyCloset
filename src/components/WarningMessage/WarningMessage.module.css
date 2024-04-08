@@ -1,0 +1,9 @@
+.messageDiv {
+    width: 100%;
+}
+
+.buttonsDiv {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 5px 0;
+}

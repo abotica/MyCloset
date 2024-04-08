@@ -1,4 +1,114 @@
 {
   "items": [
+    {
+      "id": "fc944fae",
+      "item": "hat",
+      "brand": "C&A",
+      "price": "9.99",
+      "onSale": "no",
+      "size": "l",
+      "color": "#000000",
+      "dateBought": "2024-04-04",
+      "imagePath": "/src/assets/Hat.png?t=1712521953301"
+    },
+    {
+      "id": "4c39f076",
+      "item": "jeans",
+      "brand": "Europa92",
+      "price": "40",
+      "onSale": "yes",
+      "size": "xl",
+      "color": "#000000",
+      "dateBought": "2024-04-01",
+      "imagePath": "/src/assets/Jeans.png?t=1712498193884"
+    },
+    {
+      "id": "6c22337b",
+      "item": "shorts",
+      "brand": "Pull&Bear",
+      "price": "12",
+      "onSale": "yes",
+      "size": "xxl",
+      "color": "#ff0000",
+      "dateBought": "2024-04-03",
+      "imagePath": "/src/assets/Shorts.png"
+    },
+    {
+      "id": "daa1dfa2",
+      "item": "jumper",
+      "brand": "Zara",
+      "price": "30",
+      "onSale": "no",
+      "size": "xl",
+      "color": "#ffffff",
+      "dateBought": "2024-04-02",
+      "imagePath": "/src/assets/Jumper.png"
+    },
+    {
+      "id": "a82cf42e",
+      "item": "t-shirt",
+      "brand": "Pull&Bear",
+      "price": "12",
+      "onSale": "no",
+      "size": "xl",
+      "color": "#0084ff",
+      "dateBought": "2024-04-10",
+      "imagePath": "/src/assets/T-shirt.png?t=1712580212513"
+    },
+    {
+      "id": "14c8abb2",
+      "item": "jeans",
+      "brand": "Zara",
+      "price": "35",
+      "onSale": "yes",
+      "size": "xxl",
+      "color": "#ff0000",
+      "dateBought": "2024-04-03",
+      "imagePath": "/src/assets/Jeans.png?t=1712580118678"
+    },
+    {
+      "id": "2ad5a961",
+      "item": "shorts",
+      "brand": "C&A",
+      "price": "12",
+      "onSale": "yes",
+      "size": "m",
+      "color": "#000000",
+      "dateBought": "2024-04-01",
+      "imagePath": "/src/assets/Shorts.png?t=1712580125390"
+    },
+    {
+      "id": "b21f0d88",
+      "item": "jumper",
+      "brand": "New Yorker",
+      "price": "20.99",
+      "onSale": "yes",
+      "size": "xxl",
+      "color": "#000000",
+      "dateBought": "2024-04-04",
+      "imagePath": "/src/assets/Jumper.png?t=1712580122012"
+    },
+    {
+      "id": "b310700f",
+      "item": "t-shirt",
+      "brand": "Europa92",
+      "price": "35",
+      "onSale": "no",
+      "size": "xl",
+      "color": "#000000",
+      "dateBought": "2024-04-06",
+      "imagePath": "/src/assets/T-shirt.png?t=1712580212513"
+    },
+    {
+      "id": "7ad389bb",
+      "item": "jeans",
+      "brand": "Gucci",
+      "price": "100",
+      "onSale": "yes",
+      "size": "xl",
+      "color": "#000000",
+      "dateBought": "2024-04-08",
+      "imagePath": "/src/assets/Jeans.png?t=1712583021189"
+    }
   ]
 }

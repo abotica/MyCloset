@@ -1,0 +1,9 @@
+.tableRow td{
+text-align: center;
+}
+
+.tableRow td img{
+    width: 80px;
+    height: auto;
+}
+

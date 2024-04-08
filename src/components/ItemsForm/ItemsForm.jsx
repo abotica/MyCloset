@@ -7,16 +7,16 @@ import ShortsImage from "/src/assets/Shorts.png"
 import TShirtImage from "/src/assets/T-shirt.png"
 import {v4 as uuid} from "uuid"
 import axios from "axios"
-import SelectInput from "../../FormInputs/SelectInput"
-import FieldInput from "../../FormInputs/FieldInput"
-import RadioInput from "../../FormInputs/RadioInput"
-import UrlContext from "../../UrlContext"
+import SelectInput from "../FormInputs/SelectInput"
+import FieldInput from "../FormInputs/FieldInput"
+import RadioInput from "../FormInputs/RadioInput"
+import UrlContext from "../UrlContext"
 
 // Using UUID so that I don't have to check if ID already exist in the "database"
 // UUIDs are globally unique
 
 function ItemsForm() {
-    const URL = useContext(UrlContext)
+    const {URL, setItems, items} = useContext(UrlContext)
 
     const [item, setItemData] = useState(
         {
@@ -40,7 +40,9 @@ function ItemsForm() {
         const postItem = {id: smallID, ...item, imagePath: imagePath}
        
         axios.post(URL, postItem)
-        .then(res => console.log(res))
+        .then(result => setItems([...items, result.data])
+        )
+        
         
     }
 

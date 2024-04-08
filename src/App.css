@@ -10,3 +10,12 @@ label {
   width: max-content;
   height: max-content;
 }
+
+table, td {
+  border: 1px dashed black;
+  border-collapse: collapse;
+}
+
+th {
+  border: 1px solid black;
+}
